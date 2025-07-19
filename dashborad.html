@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f7;
+  color: #333;
+}
+
+/* .navbar {
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  box-sizing: border-box;
+  width: 100%;
+
+
+} */
+
+/* .navbar.active {
+  opacity: 1;
+  visibility: visible;
+}
+.navbar .logo {
+  font-size: 27px;
+  font-weight: bold;
+  color: #1e293b;
+
+
+} */
+
+
+/* .navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  
+} */
+/* .navbar a {
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar h3 {
+  /* margin-right: 60px; 
+  font-size: 24px;
+  color: #1e293b;
+}
+.navbar ul li {
+  margin: 0 35px;
+}
+.navbar ul li a {
+  font-size: 16px;
+}
+.navbar ul li a:hover {
+  color: #3b82f6;
+}
+.navbar .search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.navbar input[type="text"] {
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 200px;
+}
+.navbar button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+} */
+
+
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 32px;
+    margin-left: 0;
+    /* transition: margin-left 0.3s ease; */
+    background-color: #f3f4f7;
+}
+
+/* Stats Section */
+.stats-section {
+    margin-bottom: 32px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    border: 1px solid #f1f5f9;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.stat-icon.revenue {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.stat-icon.users {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.stat-icon.orders {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.stat-icon.views {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.stat-trend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.stat-trend.positive {
+    color: #10b981;
+    background-color: #ecfdf5;
+}
+
+.stat-trend.negative {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.stat-content {
+    text-align: left;
+}
+
+.stat-title {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Charts Section */
+.charts-section {
+    margin-bottom: 32px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #f1f5f9;
+}
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 16px; */
+}
+
+.time-selector {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.view-all {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    /* transition: color 0.2s ease; */
+}
+
+.view-all:hover {
+    color: #1d4ed8;
+}
+
+/* Line Chart */
+.line-chart {
+    position: relative;
+    height: 250px;
+    padding: 20px 0;
+}
+
+.chart-grid-lines {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grid-line {
+    height: 1px;
+    background-color: #f1f5f9;
+    width: 100%;
+}
+
+.line-chart-svg {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    z-index: 2;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Bar Chart */
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    
+}
+
+.bar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bar-label {
+    min-width: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+}
+
+.bar-track {
+    flex: 1;
+    height: 8px;
+    background-color: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.bar-value {
+    min-width: 80px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+
+/* Footer */
+
+.Dashboard {
+  
+  width:  100%;
+  height: 100%;
+  background-color: #F3F4F7;
+  font: 16px sans-serif;
+  flex-wrap: wrap;
+  padding-bottom: 70px;
+  
+}
+
+.head {
+  
+  width: 95%;
+  padding: 20px;
+  justify-content: space-between;
+  display: flex;
+  margin-left: 30px;
+  /* margin-top: 40px; */
+  color: rgb(72, 70, 70);
+
+ }
+
+.dash1 {
+  display: flex;
+  background-color: #FFFFFF;
+  width: 95%;
+  margin-left: 25px;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  
+  
+}
+
+.dash1 div {
+  display: flex;
+  padding: 20px;
+  gap: 5px;
+}
+.side {
+   align-items: center;
+    
+  }
+.side button {
+  background-color: #FDE6E7;
+  color: crimson;
+  border-radius: 4px;
+  border: none;
+  padding: 4.5px;
+}  
+
+.dash2 {
+   display: flex;
+  background-color: #FFFFFF;
+  width: 95%;
+  margin-left: 25px;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.dash2 div {
+  display: flex;
+  padding: 20px;
+  gap: 5px;
+}
+
+.dash2 .side button {
+  background-color: #FDE6E7;
+  color: #f88f40;
+  border-radius: 4px;
+  border: none;
+  padding: 4.5px;
+}  
+
+
+.dash3 {
+   display: flex;
+  background-color: #FFFFFF;
+  width: 95%;
+  margin-left: 25px;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  margin-top: 20px
+  
+}
+
+
+.dash3 div {
+  display: flex;
+  padding: 20px;
+  gap: 5px;
+}
+
+
+.dash3 .side button {
+  background-color: #FDE6E7;
+  color: #f88f40;
+  border-radius: 4px;
+  border: none;
+  padding: 4.5px;
+}  
+
+.dash4 {
+  display: flex;
+  background-color: #FFFFFF;
+  width: 95%;
+  height: auto;
+  margin-left: 25px;
+  border-radius: 5px;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px
+
+}
+
+
+.dash4 div {
+  display: flex;
+  padding: 20px;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.dash4 .side button {
+  background-color: #cee7d9;
+  color: #3DD178;
+  border-radius: 4px;
+  border: none;
+  padding: 4.5px;
+  
+}  
+.load {
+  padding: 8px 10px 8px 10px ;
+  width: 95%;
+  margin-top: 20px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25px;
+  
+}
+.Loadmore {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.Loadmore:hover {
+  background-color: white;
+  color: #0055FF;
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  padding: 20px;
+  font-size: 14px;
+  color: #333;
+  padding-block: 30px;
+}
+
+
+.footer {
+  background-color: #FFFFFF;
+  font-family: sans-serif;
+  padding-block: 30px;
+   
+}
+.footer a {
+  text-decoration: none;
+  
+}
+
+.footer-list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+
+.footer-list li a:hover {
+  color: #3b82f6;
+}
+.container p {
+  color: #333;
+  font-size: 14px;
+  
+}
+.container p:hover {
+  color: #3b82f6;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  font-size: medium;
+  padding-inline: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .load button {
+  padding: 8px 10px 8px 10px ;
+  border-radius: 4px;
+  color:#0055FF ;
+  border: 1.5px solid  #0055FF;
+  background-color: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  font-weight: 600;
+  display: flex;
+  
+}
+
+.load button:hover {
+  background-color: #0055FF;
+  color: floralwhite;
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  padding: 20px;
+  font-size: 14px;
+  color: #333;
+  padding-block: 30px;
+}
+
+
+.footer {
+  background-color: #FFFFFF;
+  font-family: sans-serif;
+  padding-block: 30px;
+   
+}
+.footer a {
+  text-decoration: none;
+  
+}
+
+.footer-list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+.footer-link {
+  color: rgb(47, 45, 45);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 497px;
+  padding-inline: 10px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .container {
+    gap: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 5px;
+  }
+} */
+  </style>
+</head>
+<body>
+ <!-- Navigation Bar -->
+        
+       <!-- <nav>
+        <div class="navbar" >
+          <h3>Dashboard</h3>
+        <ul>
+          <li>
+          <i class="fa-solid fa-house"></i>
+             <a href="">Home</a> 
+            </li>
+
+          <li>
+            <i class="fa-solid fa-folder"></i>
+             <a href="">Projects</a>
+            </li>
+          <li>
+            <i class="fa-solid fa-list"></i>
+            <a href="">Tasks</a></li>
+          <li> 
+            <i class="fa-solid fa-chart-line"></i>
+            <a href="">Reports</a></li>
+
+          <li> 
+            <i class="fa-solid fa-gear"></i>
+            <a href="">Settings</a></li>
+        </ul>
+        <div class="search">
+          <input type="text" placeholder="Search...">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+
+       </nav> -->
+<nav class="navbar navbar-expand-lg text-white">
+        <div class="container-fluid ">
+            <a class="navbar-brand fs-1 ps-4" href="#">Dash<span>board</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-white">
+                    <li class="nav-item  mx-3 d-flex flex-lg-row flex-column align-items-center gap-2 ">
+                        <a class="nav-link active fs-3" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item mx-3 d-flex flex-lg-row flex-column align-items-center gap-2 ">
+                        <a class="nav-link active fs-3 " href="about.html">Feature</a>
+                    </li>
+                   
+                    <li class="nav-item mx-3 d-flex flex-lg-row flex-column align-items-center gap-2 ">
+                        <a class="nav-link active fs-3 " href="contact.html">Pricing</a>
+                    </li>
+                </ul>
+                <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+            </div>
+        </div>
+    </nav>
+      
+
+ <!-- Main Content -->
+                 <main class="main-content">
+            <!-- Stats Cards -->
+            <section class="stats-section">
+              
+         <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon revenue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-trend positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <span>+12.5%</span>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Total Revenue</h3>
+                            <p class="stat-value">$45,231</p>
+                        </div>
+    
+                   </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon users">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-trend positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <span>+8.2%</span>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">New Users</h3>
+                            <p class="stat-value">2,456</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon orders">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-trend negative">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                    <polyline points="17 18 23 18 23 12"></polyline>
+                                </svg>
+                                <span>-3.1%</span>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Orders</h3>
+                            <p class="stat-value">1,234</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon views">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="stat-trend positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <span>+15.3%</span>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Page Views</h3>
+                            <p class="stat-value">98,456</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activities Section -->
+
+                    <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <!-- Line Chart -->
+                    <div class="chart-container">
+                        <div class="card-header">
+                            <h3>Revenue Overview</h3>
+                            <select class="time-selector">
+                                <option>Last 30 days</option>
+                                <option>Last 60 days</option>
+                                <option>Last 90 days</option>
+                            </select>
+                        </div>
+                        <div class="line-chart">
+                            <div class="chart-grid-lines">
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                            </div>
+                            <svg class="line-chart-svg" viewBox="0 0 400 200">
+                                <polyline
+                                    fill="none"
+                                    stroke="#3b82f6"
+                                    stroke-width="3"
+                                    points="0,150 50,120 100,140 150,80 200,100 250,60 300,90 350,40 400,70"
+                                />
+                                <circle cx="0" cy="150" r="4" fill="#3b82f6"/>
+                                <circle cx="50" cy="120" r="4" fill="#3b82f6"/>
+                                <circle cx="100" cy="140" r="4" fill="#3b82f6"/>
+                                <circle cx="150" cy="80" r="4" fill="#3b82f6"/>
+                                <circle cx="200" cy="100" r="4" fill="#3b82f6"/>
+                                <circle cx="250" cy="60" r="4" fill="#3b82f6"/>
+                                <circle cx="300" cy="90" r="4" fill="#3b82f6"/>
+                                <circle cx="350" cy="40" r="4" fill="#3b82f6"/>
+                                <circle cx="400" cy="70" r="4" fill="#3b82f6"/>
+                            </svg>
+                            <div class="chart-labels">
+                                <span>Jan</span>
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                                <span>May</span>
+                                <span>Jun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="chart-container">
+                        <div class="card-header">
+                            <h3>Sales by Category</h3>
+                            <a href="#" class="view-all">View all</a>
+                        </div>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">Electronics</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 85%; background: #3b82f6;"></div>
+                                </div>
+                                <div class="bar-value">$12,450</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Clothing</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 65%; background: #10b981;"></div>
+                                </div>
+                                <div class="bar-value">$8,230</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Books</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 45%; background: #8b5cf6;"></div>
+                                </div>
+                                <div class="bar-value">$5,670</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Home & Garden</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 35%; background: #f59e0b;"></div>
+                                </div>
+                                <div class="bar-value">$4,320</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Sports</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 25%; background: #ef4444;"></div>
+                                </div>
+                                <div class="bar-value">$3,150</div>
+                            </div>
+                        </div>
+                    </div>
+
+                  </main>
+
+          
+       <!--___________ last sec ___________-->
+ 
+<div class="Dashboard">
+   <div class="lastsec">
+  <div class="head">
+      <h3>Task</h3>
+      <button style="border: none; color: blue; font: 1em sans-serif;">view all <i class="fa-solid fa-arrow-right" style="color: blue;"></i></button>
+    </div>
+    
+    <div class="dash1">
+      <div>
+        <i class="fa-thin fa-square" style="font-size: large;"></i>
+        <p> Draft the new contract document for sales team</p>
+      </div>
+      <div>
+        <button style="  border-radius: 4px; border: none; padding: 4px; background-color: #E3F4F6; color: #17A4BA;">Today 10pm</button>
+      </div>
+      <div class="side">
+        <i class="fa-sharp-duotone fa-solid fa-list"
+          style="--fa-primary-color: #424d61; --fa-secondary-color: #a2adc3;"></i>
+        <p>3/7</p>
+        <button>High</button>
+      </div>
+    </div>
+
+
+
+
+    <div class="dash2">
+      <div>
+        <i class="fa-thin fa-square" style="font-size: large;"></i>
+        <p>iOS App home page design</p>
+      </div>
+      <div>
+        <button
+          style="margin-left: -55px; border-radius: 4px; border: none; padding: 4px; background-color: #E3F4F6; color: #17A4BA;">Today
+          5pm</button>
+      </div>
+      <div class="side">
+        <i class="fa-sharp-duotone fa-solid fa-list"
+          style="--fa-primary-color: #424d61; --fa-secondary-color: #a2adc3;"></i>
+        <p>5/11</p>
+        <button>Meduim</button>
+      </div>
+    </div>
+
+
+    <div class="dash3">
+
+      <div>
+        <i class="fa-thin fa-square" style="font-size: large;"></i>
+        <p>Enable analytics tracking</p>
+      </div>
+      <div>
+        <button
+          style=" border-radius: 8px; padding: 8px; border: none;">Tomorrow
+          10pm</button>
+      </div>
+      <div class="side">
+        <i class="fa-sharp-duotone fa-solid fa-list"
+          style="--fa-primary-color: #424d61; --fa-secondary-color: #a2adc3;"></i>
+        <p>10/11</p>
+        <button>Meduim</button>
+      </div>
+    </div>
+
+
+
+
+    <div class="dash4">
+      <div>
+      <i class="fa-thin fa-square" style="font-size: large;"></i>
+      <p>Kanban board design</p>
+      </div>
+      <div>
+      <button style=" border-radius: 8px; padding: 8px; border: none;" >sep 11 , 3pm</button>
+      </div>
+      <div class="side">
+        <i class="fa-sharp-duotone fa-solid fa-list"
+        style="--fa-primary-color: #424d61; --fa-secondary-color: #a2adc3;"></i>
+        <p>0/5</p>
+        <button>Low</button>
+      </div>
+    </div>
+   <div class="load">
+    <button class="Loadmore">Load More</button>
+   </div>
+  </div> 
+ </div>
+   
+                     <!-- _______________ FOOTER _______________-->
+
+  <footer class="footer">
+    <div class="container">
+
+      <ul class="footer-list">
+
+        <li class="footer-item">
+          <a href="#" class="footer-link">About</a>
+        </li>
+
+        <li class="footer-item">
+          <a href="#" class="footer-link">Privacy</a>
+        </li>
+
+        <li class="footer-item">
+          <a href="#" class="footer-link">Terms</a>
+        </li>
+
+        <li class="footer-item">
+          <a href="#" class="footer-link">Developers</a>
+        </li>
+
+        <li class="footer-item">
+          <a href="#" class="footer-link">Support</a>
+        </li>
+
+        <li class="footer-item">
+          <a href="#" class="footer-link">Careers</a>
+        </li>
+
+      </ul>
+
+      <p class="copyright">
+        © 2022 All Rights Reserved
+      </p>
+
+
+    </div>
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+</html>
